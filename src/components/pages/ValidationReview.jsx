@@ -53,7 +53,7 @@ const ValidationReview = () => {
     toast.info(`Validation bypassed for ${validation.field} (Demo Mode)`);
   };
   
-  const handleProceedToReview = () => {
+const handleProceedToReview = () => {
     const remainingErrors = validationResult.errors.filter(
       error => !bypassedErrors.includes(error.field)
     );
@@ -69,6 +69,17 @@ const ValidationReview = () => {
     });
     
     toast.success("Validation complete - proceeding to review");
+    navigate("/application-review");
+  };
+  
+  const handleSkipValidation = () => {
+    updateApplicationData({
+      status: "ready_for_review",
+      validationSkipped: true,
+      validationBypass: validationResult?.errors?.map(e => e.field) || []
+    });
+    
+    toast.success("Validation skipped - proceeding to review (Demo Mode)");
     navigate("/application-review");
   };
   
@@ -215,7 +226,7 @@ const ValidationReview = () => {
         transition={{ duration: 0.6, delay: 0.4 }}
         className="mb-8"
       >
-        <Card className="p-6 bg-slate-50">
+<Card className="p-6 bg-slate-50">
           <div className="flex items-start space-x-4">
             <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
               <ApperIcon name="Info" className="w-5 h-5 text-blue-600" />
@@ -225,18 +236,19 @@ const ValidationReview = () => {
                 Demo Mode Information
               </h4>
               <p className="text-slate-600 text-sm mb-3">
-                In this demonstration, validation errors do not prevent you from proceeding. 
+                In this demonstration, you can bypass individual validation errors or skip the entire validation process. 
+                Use the "Skip Validation" button to proceed immediately without addressing any issues. 
                 In a production environment, critical errors would need to be resolved before advancement.
               </p>
               <div className="flex flex-wrap gap-2">
                 <span className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">
-                  Validation Bypass Available
+                  Individual Bypass Available
+                </span>
+                <span className="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">
+                  Complete Skip Available
                 </span>
                 <span className="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">
                   Demo Environment
-                </span>
-                <span className="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">
-                  Educational Purpose
                 </span>
               </div>
             </div>
@@ -244,7 +256,7 @@ const ValidationReview = () => {
         </Card>
       </motion.div>
       
-      <motion.div
+<motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.5 }}
@@ -259,6 +271,17 @@ const ValidationReview = () => {
         </Button>
         
         <div className="flex space-x-3">
+          {remainingIssues.length > 0 && (
+            <Button
+              variant="ghost"
+              onClick={handleSkipValidation}
+              className="border-2 border-dashed border-blue-300 text-blue-600 hover:bg-blue-50 hover:border-blue-400"
+            >
+              <ApperIcon name="SkipForward" className="w-4 h-4 mr-2" />
+              Skip Validation (Demo)
+            </Button>
+          )}
+          
           <Button
             variant="primary"
             onClick={handleProceedToReview}
