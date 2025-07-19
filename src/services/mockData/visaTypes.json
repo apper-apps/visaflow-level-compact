@@ -1,0 +1,103 @@
+[
+  {
+    "Id": 1,
+    "code": "482",
+    "subclass": "482",
+    "name": "Temporary Skill Shortage (TSS) visa",
+    "description": "For skilled workers sponsored by an employer to work in Australia temporarily",
+    "category": "Work",
+    "processingTime": "75% of applications in 4 months",
+    "featured": true,
+    "requirements": [
+      "Sponsorship by approved employer",
+      "Relevant skills and qualifications",
+      "English language proficiency",
+      "Health and character requirements"
+    ],
+    "streams": [
+      "Short-term stream (up to 2 years)",
+      "Medium-term stream (up to 4 years)",
+      "Labour Agreement stream"
+    ]
+  },
+  {
+    "Id": 2,
+    "code": "186",
+    "subclass": "186",
+    "name": "Employer Nomination Scheme (ENS) visa",
+    "description": "For skilled workers nominated by an employer for permanent residence",
+    "category": "Permanent",
+    "processingTime": "75% of applications in 6 months",
+    "featured": false,
+    "requirements": [
+      "Nomination by approved employer",
+      "Skills assessment",
+      "English language proficiency",
+      "Age under 45 years"
+    ]
+  },
+  {
+    "Id": 3,
+    "code": "189",
+    "subclass": "189",
+    "name": "Skilled Independent visa",
+    "description": "For skilled workers who are not sponsored by an employer, state or family member",
+    "category": "Permanent",
+    "processingTime": "75% of applications in 8 months",
+    "featured": false,
+    "requirements": [
+      "Skills assessment",
+      "Points test",
+      "English language proficiency",
+      "Age under 45 years"
+    ]
+  },
+  {
+    "Id": 4,
+    "code": "190",
+    "subclass": "190",
+    "name": "Skilled Nominated visa",
+    "description": "For skilled workers nominated by a state or territory government",
+    "category": "Permanent",
+    "processingTime": "75% of applications in 9 months",
+    "featured": false,
+    "requirements": [
+      "State nomination",
+      "Skills assessment",
+      "Points test",
+      "English language proficiency"
+    ]
+  },
+  {
+    "Id": 5,
+    "code": "600",
+    "subclass": "600",
+    "name": "Visitor visa",
+    "description": "For tourism, business visitor activities or visiting family and friends",
+    "category": "Visitor",
+    "processingTime": "75% of applications in 24 days",
+    "featured": false,
+    "requirements": [
+      "Genuine intention to visit",
+      "Financial capacity",
+      "Health insurance (recommended)",
+      "Character requirements"
+    ]
+  },
+  {
+    "Id": 6,
+    "code": "500",
+    "subclass": "500",
+    "name": "Student visa",
+    "description": "For international students to study in Australia",
+    "category": "Study",
+    "processingTime": "75% of applications in 4 weeks",
+    "featured": false,
+    "requirements": [
+      "Enrollment in registered course",
+      "Overseas Student Health Cover",
+      "English language proficiency",
+      "Financial capacity"
+    ]
+  }
+]
