@@ -67,13 +67,13 @@ const ApplicationForm = () => {
     
     if (missingFields.length > 0) {
       toast.warning("Please fill in all required fields before submitting");
-      return;
-    }
-    
-    updateApplicationData({ ...formData, status: "submitted", submittedAt: new Date().toISOString() });
-    toast.success("Application submitted for validation");
-    navigate("/validation-review");
-  };
+return;
+  }
+  
+  updateApplicationData({ ...formData, status: "pending_review", submittedAt: new Date().toISOString() });
+  toast.success("Application submitted for review");
+  navigate("/application-review");
+};
   
   const sections = [
     { id: "personal", title: "Personal Details", icon: "User" },
