@@ -1,9 +1,10 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import ApperIcon from "@/components/ApperIcon";
 import ProgressBar from "@/components/molecules/ProgressBar";
 
 const Header = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   
   const steps = [
     { id: "home", title: "Start", path: "/" },
@@ -23,6 +24,10 @@ const Header = () => {
     if (path === "/application-review") return 5;
     if (path === "/document-generation") return 6;
     return 1;
+};
+  
+  const handleLogoClick = () => {
+    navigate("/");
   };
   
   return (
@@ -30,12 +35,16 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center space-x-4">
-            <div className="flex items-center space-x-2">
+            <div 
+              className="flex items-center space-x-2 cursor-pointer hover:opacity-80 transition-opacity duration-200"
+              onClick={handleLogoClick}
+              title="Return to Dashboard"
+            >
               <div className="w-8 h-8 bg-gradient-to-br from-primary-500 to-primary-600 rounded-lg flex items-center justify-center">
                 <ApperIcon name="FileCheck" className="w-5 h-5 text-white" />
               </div>
               <div>
-                <h1 className="text-xl font-bold text-slate-900">VisaFlow Pro</h1>
+                <h1 className="text-xl font-bold text-slate-900 hover:text-primary-600 transition-colors duration-200">VisaFlow Pro</h1>
                 <p className="text-xs text-slate-500">Immigration Automation Platform</p>
               </div>
             </div>
